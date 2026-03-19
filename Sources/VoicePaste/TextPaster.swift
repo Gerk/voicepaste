@@ -20,12 +20,12 @@ class TextPaster {
         // Save current clipboard contents
         let previousContents = pasteboard.string(forType: .string)
 
-        // Set our transcribed text
+        // Set our transcribed text with trailing space
         pasteboard.clearContents()
-        pasteboard.setString(text, forType: .string)
+        pasteboard.setString(text + " ", forType: .string)
 
-        // Small delay to ensure pasteboard is updated before simulating keypress
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+        // Delay to let modifier keys (Option+Shift) fully release before pasting
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.simulatePaste()
 
             // Restore previous clipboard after a short delay

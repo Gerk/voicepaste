@@ -34,10 +34,13 @@ Requires: macOS 13+, Swift 5.9+
 - **LSUIElement = true** — no dock icon
 
 ## Permissions
-App needs three macOS permissions on first launch:
+App needs four macOS permissions on first launch:
 1. Microphone (Info.plist + entitlements)
 2. Speech Recognition (Info.plist)
 3. Accessibility (for CGEvent paste — user grants in System Settings)
+4. Input Monitoring (for global hotkey when app not focused — user grants in System Settings)
+
+**⚠️ Re-sign gotcha:** Every `codesign` invalidates Accessibility + Input Monitoring permissions. macOS does NOT re-prompt — the app silently stops working. After any rebuild, user must manually remove and re-add VoicePaste in both Accessibility AND Input Monitoring, then restart the app.
 
 ## Future Phases
 - Phase 2: iOS remote keyboard (websocket to Mac)
