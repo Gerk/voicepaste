@@ -24,7 +24,7 @@ The NSPanel approach stole focus. Alternative approaches to try:
 - Auto-start on login (LaunchAgent or Login Items)
 - Audio feedback (subtle click on start/stop)
 
-## Priority 4: ESP32 Bluetooth push-to-talk button
+## Priority 1b: ESP32 Bluetooth push-to-talk button (QUICK WIN ~15min)
 - ESP32 with a single GPIO button, BLE GATT peripheral
 - Button down → BLE notify → Mac starts recording
 - Button up → BLE notify → Mac stops, transcribes, types
