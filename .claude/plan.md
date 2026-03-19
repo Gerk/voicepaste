@@ -24,6 +24,15 @@ The NSPanel approach stole focus. Alternative approaches to try:
 - Auto-start on login (LaunchAgent or Login Items)
 - Audio feedback (subtle click on start/stop)
 
+## Priority 4: ESP32 Bluetooth push-to-talk button
+- ESP32 with a single GPIO button, BLE GATT peripheral
+- Button down → BLE notify → Mac starts recording
+- Button up → BLE notify → Mac stops, transcribes, types
+- Mac side: `CoreBluetooth` `CBCentralManager` — no special permissions beyond Bluetooth
+- Completely bypasses hotkey/Input Monitoring/Accessibility permission hell
+- Mark has ESP32 hardware and experience — this is a real option, not theoretical
+- Could be a desk button, a foot pedal, or even a wearable ring button
+
 ## Parking Lot
 - Trailing space behavior — maybe configurable or context-aware
 - Whisper/hulk integration as optional backend toggle
