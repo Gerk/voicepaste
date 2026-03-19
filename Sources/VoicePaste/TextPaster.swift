@@ -28,8 +28,8 @@ class TextPaster {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.simulatePaste()
 
-            // Restore previous clipboard after a short delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            // Restore previous clipboard — longer delay to ensure paste completes
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if let previous = previousContents {
                     pasteboard.clearContents()
                     pasteboard.setString(previous, forType: .string)
